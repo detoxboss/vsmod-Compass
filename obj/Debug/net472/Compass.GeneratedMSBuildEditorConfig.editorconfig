@@ -1,8 +1,5 @@
 is_global = true
 build_property.RootNamespace = Compass
-build_property.ProjectDir = C:\Users\jturn\source\repos\vsmod-Compass1.21.x\
+build_property.ProjectDir = /home/runner/work/vsmod-Compass/vsmod-Compass/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
-build_property.CsWinRTUseWindowsUIXamlProjections = false
-build_property.EffectiveAnalysisLevelStyle = 
-build_property.EnableCodeStyleSeverity = 
