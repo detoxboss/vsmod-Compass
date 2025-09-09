@@ -4,11 +4,11 @@
   "height": 3,
   "ingredients": {
     "G": {"type": "item", "code": "game:gear-temporal" },
-    "C": {"type": "block", "code": "compass-placeable-magnetic" }
+    "C": {"type": "block", "code": "compass:compass-placeable-magnetic" }
   },
   "shapeless": true,
   "output": {
-    "type": "block",
-    "code": "compass-placeable-origin"
+    "type": "item",
+    "code": "compass:compass-origin"
   }
 }
