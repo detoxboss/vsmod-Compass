@@ -1,4 +1,5 @@
 using Vintagestory.API.Client;
+using System;
 using Vintagestory.API.Common;
 
 namespace Compass {

@@ -1,5 +1,6 @@
 using Vintagestory.API.Client;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Common;
 
 namespace Compass {
   public class CompassNeedleRenderer : IRenderer {
@@ -30,34 +31,37 @@ namespace Compass {
       meshref.Dispose();
     }
 
-    public void OnRenderFrame(float deltaTime, EnumRenderStage stage) {
-      if (meshref == null) return;
+        public void OnRenderFrame(float deltaTime, EnumRenderStage stage)
+        {
+            if (meshref == null) return;
 
-      IRenderAPI rpi = api.Render;
-      Vec3d camPos = api.World.Player.Entity.CameraPos;
+            IRenderAPI rpi = api.Render;
+            Vec3d camPos = api.World.Player.Entity.CameraPos;
 
-      rpi.GlDisableCullFace();
-      rpi.GlToggleBlend(true);
+            rpi.GlDisableCullFace();
+            rpi.GlToggleBlend(true);
 
-      IStandardShaderProgram prog = rpi.PreparedStandardShader(compassPos.X, compassPos.Y, compassPos.Z);
-      prog.Tex2D = api.BlockTextureAtlas.AtlasTextureIds[0];
+            IStandardShaderProgram prog = rpi.PreparedStandardShader(compassPos.X, compassPos.Y, compassPos.Z);
+            prog.Tex2D = api.BlockTextureAtlas.AtlasTextures[0].TextureId;
 
-      // TODO: Decouple from BlockCompass
-      var renderAngle = AngleRad ?? BlockCompass.GetWildSpinAngle(api);
 
-      prog.ModelMatrix = ModelMat
-        .Identity()
-        .Translate(compassPos.X - camPos.X, compassPos.Y - camPos.Y, compassPos.Z - camPos.Z)
-        .Translate(0.5f, 11f / 16f, 0.5f)
-        .RotateY(renderAngle)
-        .Translate(-0.5f, -11f / 16f, -0.5f)
-        .Values
-      ;
+            // TODO: Decouple from BlockCompass
+            var renderAngle = AngleRad ?? BlockCompass.GetWildSpinAngle(api);
 
-      prog.ViewMatrix = rpi.CameraMatrixOriginf;
-      prog.ProjectionMatrix = rpi.CurrentProjectionMatrix;
-      rpi.RenderMesh(meshref);
-      prog.Stop();
+            prog.ModelMatrix = ModelMat
+                .Identity()
+                .Translate(compassPos.X - camPos.X, compassPos.Y - camPos.Y, compassPos.Z - camPos.Z)
+                .Translate(0.5f, 11f / 16f, 0.5f)
+                .RotateY(renderAngle)
+                .Translate(-0.5f, -11f / 16f, -0.5f)
+                .Values;
+
+            prog.ViewMatrix = rpi.CameraMatrixOriginf;
+            prog.ProjectionMatrix = rpi.CurrentProjectionMatrix;
+
+            rpi.RenderMesh(meshref);
+            prog.Stop();
+        }
+
     }
-  }
 }

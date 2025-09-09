@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using Vintagestory.API.Common;
 
 namespace ModIntegrity {
   public static class ReflectionExtensions {

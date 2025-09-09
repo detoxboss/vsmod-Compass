@@ -1,5 +1,6 @@
-using Vintagestory.API.Common;
+using System;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Common;
 
 namespace Compass {
   class BlockMagneticCompass : BlockCompass {

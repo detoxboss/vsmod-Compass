@@ -1,0 +1,13 @@
+{
+  "type": "code",
+  "side": "Universal",
+  "modid": "compass",
+  "name": "Compass",
+  "authors": [
+    "goxmeor",
+    "BuFuu"
+  ],
+  "description": "Adds craftable compasses for Odyn <3 Love BuFu xoxo",
+  "version": "1.2.1",
+  "dependency": {}
+}

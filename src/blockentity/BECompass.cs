@@ -1,7 +1,8 @@
 using Vintagestory.API.Client;
-using Vintagestory.API.Common;
+using System;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Common;
 
 namespace Compass {
 
